@@ -4,8 +4,11 @@ dotenv.config();
 import { connectDb } from "./configs/mongodb.config";
 import { auth } from "@sifen/jwt-auth-api";
 import { user } from "@sifen/jwt-auth-api";
+import { SecurityMiddlewares } from "./middlewares/security";
 
 const app = express();
+SecurityMiddlewares(app);
+
 const PORT = process.env.PORT;
 
 app.use(express.json());
